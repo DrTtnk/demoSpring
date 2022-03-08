@@ -24,16 +24,12 @@ The following guides illustrate how to use some features concretely:
 docker run --name mysql -e MYSQL_ROOT_PASSWORD=1234 -p 3306:3306 mysql
 ```
 
-# ToDo
-Create a new entity (and relative repository) called User, with the fields:
-* id
-* name
-* surname
-* email
-* password
+To start and install the frontend
+```shell
+cd frontent
+npm i 
+npm run start
+```
 
-Create a new controller called UserController, with the following methods:
-* getAllUsers
-* getUserById
-* createUser
-* login (just check if the email and password are correct)
+# ToDo
+Create a new compoenent 

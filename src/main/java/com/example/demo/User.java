@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity(name = "users")
 public class User {

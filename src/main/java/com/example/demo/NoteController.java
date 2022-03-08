@@ -2,6 +2,12 @@ package com.example.demo;
 
 import org.springframework.web.bind.annotation.*;
 
+class NotNotFoundException extends RuntimeException {
+    NotNotFoundException(String message) {
+        super(message);
+    }
+}
+
 @RestController
 public class NoteController {
 
@@ -14,6 +20,13 @@ public class NoteController {
     @GetMapping("/notes")
     public Iterable<Note> getAllNotes() {
         return noteRepository.findAll();
+    }
+
+    @GetMapping("/notes/{id}")
+    public Note getNote(@PathVariable Long id) {
+        var note = noteRepository.findById(id);
+        if (note.isEmpty()) throw new NotNotFoundException("Note not found");
+        return note.get();
     }
 
     @PostMapping("/notes/create")
