@@ -16,7 +16,7 @@ public class NoteController {
         return noteRepository.findAll();
     }
 
-    @PostMapping("/createNote")
+    @PostMapping("/notes/create")
     public Note createNote(@RequestBody Note note) {
         note.title = note.title.toUpperCase();
         return noteRepository.save(note);
